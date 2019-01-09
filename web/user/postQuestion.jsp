@@ -5,7 +5,7 @@
 
 <div class="container-fluid mt-2">
     <h5 class="text-success text-center">${message}</h5>
-    <form action="user" method="post">
+    <form action="question" method="post">
         <input type="hidden" name="pageRequest" value="postQuestionPost">
         <div class="form-group row">
             <label for="question" class="col-sm-2 col-form-label">Question</label>

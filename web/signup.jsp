@@ -50,12 +50,11 @@
 
         <div class="form-group">
             <button type="submit" class="btn btn-danger mx-auto">Register</button>
-            <a href="index.jsp" class="btn btn-danger mx-auto">Cancel</a>
+            <a href="user?pageRequest=loginPage" class="btn btn-danger mx-auto">Cancel</a>
         </div>
     </form>
 </div>
 
 
-<footer id="sticky">&copy&nbspDeerwalk</footer>
 </body>
 </html>

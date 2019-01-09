@@ -12,20 +12,20 @@
         </li>
 
         <li>
-            <a href="user?pageRequest=postQuestionGet">Post</a>
+            <a href="question?pageRequest=postQuestionGet">Post</a>
         </li>
         <li>
-            <a href="user?pageRequest=listQuestions">Questions</a>
+            <a href="question?pageRequest=listQuestions">Questions</a>
         </li>
         </c:if>
 
         <c:if test="${sessionScope.user.role== 'user'}">
         <li>
-            <a href="user?pageRequest=play">Play</a>
+            <a href="question?pageRequest=play">Play</a>
         </li>
 
         <li>
-            <a href="user?pageRequest=results&userId=${user.id}">Results</a>
+            <a href="question?pageRequest=results&userId=${user.id}">Results</a>
         </li>
         </c:if>
 

@@ -8,7 +8,7 @@
         <div class="card-header d-flex justify-content-center">
             ${question.question}
         </div>
-        <form action="user" method = "post">
+        <form action="question" method = "post">
             <input type = "hidden" name = "userId" value="${user.id}">
             <input type = "hidden" name = "questionId" value="${question.id}">
             <input type="hidden" name="pageRequest" value="nextQuestion">

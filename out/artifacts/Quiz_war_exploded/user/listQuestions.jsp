@@ -22,14 +22,13 @@
                 <td>${question.question}</td>
                 <td>${question.category}</td>
                 <td>${question.difficultyLevel}</td>
-                <td><a href = "user?pageRequest=editQuestionGet&id=${question.id}"><i class="fas fa-edit"></i></a></td>
-                <td><a href = "user?pageRequest=deleteQuestion&id=${question.id}"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a href = "question?pageRequest=editQuestionGet&id=${question.id}"><i class="fas fa-edit"></i></a></td>
+                <td><a href = "question?pageRequest=deleteQuestion&id=${question.id}"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
-
 
 </body>
 </html>

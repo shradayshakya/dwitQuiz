@@ -4,7 +4,7 @@
 
 <div class="container-fluid mt-2">
     <h5 class="text-success text-center">${message}</h5>
-    <form action="user" method="post">
+    <form action="question" method="post">
         <input type = "hidden" name = "id" value = "${question.id}">
         <input type="hidden" name="pageRequest" value="editQuestionPost">
         <div class="form-group row">
@@ -47,7 +47,7 @@
             <label class="col-sm-2 col-form-label">Correct answer</label>
             <div class="col-sm-10">
                 <select name="answer" class="form-control">
-                    <option Select an option</option>
+                    <option> Select an option</option>
                     <option ${question.answer == 1 ? 'selected' : ''} value="1" >1</option>
                     <option ${question.answer == 2 ? 'selected' : ''} value="2">2</option>
                     <option ${question.answer == 3 ? 'selected' : ''} value="3">3</option>
