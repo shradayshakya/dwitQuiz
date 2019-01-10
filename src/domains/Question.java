@@ -10,6 +10,7 @@ public class Question {
     String category;
     int answer;
     int difficultyLevel;
+    boolean display;
 
     public int getId() {
         return id;
@@ -81,5 +82,29 @@ public class Question {
 
     public void setDifficultyLevel(int difficultyLevel) {
         this.difficultyLevel = difficultyLevel;
+    }
+
+    public boolean isDisplay() {
+        return display;
+    }
+
+    public void setDisplay(boolean display) {
+        this.display = display;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", question='" + question + '\'' +
+                ", optionOne='" + optionOne + '\'' +
+                ", optionTwo='" + optionTwo + '\'' +
+                ", optionThree='" + optionThree + '\'' +
+                ", optionFour='" + optionFour + '\'' +
+                ", category='" + category + '\'' +
+                ", answer=" + answer +
+                ", difficultyLevel=" + difficultyLevel +
+                ", display=" + display +
+                '}';
     }
 }

@@ -25,6 +25,15 @@
         <servlet-name>Question</servlet-name>
         <url-pattern>/question</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Quiz</servlet-name>
+        <servlet-class>controller.QuizServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Quiz</servlet-name>
+        <url-pattern>/quiz</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -42,5 +51,11 @@
         <filter-name>UserFilter</filter-name>
         <url-pattern>/question/*</url-pattern>
     </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>UserFilter</filter-name>
+        <url-pattern>/quiz/*</url-pattern>
+    </filter-mapping>
+
 
 </web-app>

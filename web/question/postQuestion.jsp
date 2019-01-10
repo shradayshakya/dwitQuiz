@@ -82,6 +82,20 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Display it to user?</label>
+            <div class="col-sm-10">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="display" id="inlineRadio11" value="0" checked>
+                    <label class="form-check-label" for="inlineRadio11">No</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="display" id="inlineRadio12" value="1">
+                    <label class="form-check-label" for="inlineRadio12">Yes</label>
+                </div>
+            </div>
+        </div>
+
         <div class="form-group d-flex">
             <button type="submit" class="btn btn-dark mx-auto">Post</button>
         </div>

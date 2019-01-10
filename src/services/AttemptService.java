@@ -1,10 +1,13 @@
 package services;
 
+import domains.Result;
 import utils.DatabaseConnection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AttemptService {
     public String insertAttempt(int userId, int questionId, int userAnswer){
@@ -56,5 +59,42 @@ public class AttemptService {
             message = e.getMessage();
         }
         return  message;
+    }
+
+
+    public List<Result> getResults(int id){
+        DatabaseConnection db = new DatabaseConnection();
+        String sql = "SELECT attempts.id, questions.question, " +
+                " questions.optionOne, questions.optionTwo, " +
+                " questions.optionThree, questions.optionFour, " +
+                "questions.answer, attempts.userAnswer " +
+                "FROM questions " +
+                "INNER JOIN attempts " +
+                "ON " +
+                "attempts.questionId=questions.id " +
+                "WHERE attempts.userId = ?";
+        List<Result> results= new ArrayList<Result>();
+        try{
+            PreparedStatement ps = db.getPreparedStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Result result = new Result();
+                result.setId(rs.getInt("id"));
+                result.setUserId(id);
+                result.setQuestion(rs.getString("question"));
+                result.setOptionOne(rs.getString("optionOne"));
+                result.setOptionTwo(rs.getString("optionTwo"));
+                result.setOptionThree(rs.getString("optionThree"));
+                result.setOptionFour(rs.getString("optionFour"));
+                result.setAnswer(rs.getInt("answer"));
+                result.setUserAnswer(rs.getInt("userAnswer"));
+                results.add(result);
+            }
+            rs.close();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return results;
     }
 }

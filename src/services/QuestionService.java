@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionService {
-    public String insertQuestion(String question, String optionOne, String optionTwo, String optionThree, String optionFour, String category, int answer, int difficultyLevel){
+    public String insertQuestion(String question, String optionOne, String optionTwo, String optionThree, String optionFour, String category, int answer, int difficultyLevel, boolean display){
         String message = "";
 
         DatabaseConnection db = new DatabaseConnection();
-        String sql = "INSERT INTO questions(question, optionOne, optionTwo, optionThree, optionFour, category, answer, difficultyLevel) VALUES (?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO questions(question, optionOne, optionTwo, optionThree, optionFour, category, answer, difficultyLevel, display) VALUES (?,?,?,?,?,?,?,?,?);";
         try{
             PreparedStatement ps = db.getPreparedStatement(sql);
             ps.setString(1, question);
@@ -26,6 +26,7 @@ public class QuestionService {
             ps.setString(6, category);
             ps.setInt(7, answer);
             ps.setInt(8, difficultyLevel);
+            ps.setBoolean(9, display);
             ps.execute();
             message = "Question successfully registered";
         }catch (SQLException e){
@@ -53,6 +54,7 @@ public class QuestionService {
                 question.setCategory(rs.getString("category"));
                 question.setAnswer(rs.getInt("answer"));
                 question.setDifficultyLevel(rs.getInt("difficultyLevel"));
+                question.setDisplay(rs.getBoolean("display"));
                 questions.add(question);
             }
             rs.close();
@@ -81,6 +83,7 @@ public class QuestionService {
                 question.setCategory(rs.getString("category"));
                 question.setAnswer(rs.getInt("answer"));
                 question.setDifficultyLevel(rs.getInt("difficultyLevel"));
+                question.setDisplay(rs.getBoolean("display"));
             }
             rs.close();
         }catch (SQLException e){
@@ -89,11 +92,11 @@ public class QuestionService {
         return question;
     }
 
-    public String editQuestion(int id, String question, String optionOne, String optionTwo, String optionThree, String optionFour, String category, int answer, int difficultyLevel){
+    public String editQuestion(int id, String question, String optionOne, String optionTwo, String optionThree, String optionFour, String category, int answer, int difficultyLevel, boolean display){
         String message = "";
 
         DatabaseConnection db = new DatabaseConnection();
-        String sql = "UPDATE questions SET question = ?, optionOne = ?, optionTwo = ?, optionThree = ?, optionFour = ?, category = ?, answer = ?, difficultyLevel = ? WHERE id = ?";
+        String sql = "UPDATE questions SET question = ?, optionOne = ?, optionTwo = ?, optionThree = ?, optionFour = ?, category = ?, answer = ?, difficultyLevel = ?, display = ? WHERE id = ?";
         try{
             PreparedStatement ps = db.getPreparedStatement(sql);
             ps.setString(1, question);
@@ -104,9 +107,32 @@ public class QuestionService {
             ps.setString(6, category);
             ps.setInt(7, answer);
             ps.setInt(8, difficultyLevel);
-            ps.setInt(9, id);
+            ps.setBoolean(9, display);
+            ps.setInt(10, id);
             ps.execute();
             message = "Question with id "+id+" successfully updated";
+        }catch (SQLException e){
+            message = e.getMessage();
+        }
+        return  message;
+    }
+
+    public String editQuestion(int id, boolean display){
+        String message = "";
+
+        DatabaseConnection db = new DatabaseConnection();
+        String sql = "UPDATE questions SET display = ? WHERE id = ?";
+        try{
+            PreparedStatement ps = db.getPreparedStatement(sql);
+            ps.setBoolean(1, display);
+            ps.setInt(2, id);
+            ps.execute();
+            if (display){
+                message = "Question with id "+id+" will be displayed to users";
+            }else{
+                message = "Question with id "+id+" will not be displayed to users";
+            }
+
         }catch (SQLException e){
             message = e.getMessage();
         }
@@ -131,18 +157,16 @@ public class QuestionService {
     }
 
 
-    public Question getQuestion(int limit, int row){
-        Question[] questions = new Question[limit];
+    public Question getDisplayableQuestion(int row){
         DatabaseConnection db = new DatabaseConnection();
-        String sql = "SELECT * FROM questions LIMIT ?";
-
+        String sql = "SELECT * FROM (SELECT @row := @row + 1 AS rownum, questions.* FROM (SELECT @row:= 0) AS r, questions WHERE display=true) questions WHERE rownum=?";
+        Question question = null;
         try{
             PreparedStatement ps = db.getPreparedStatement(sql);
-            ps.setInt(1, limit);
+            ps.setInt(1, row);
             ResultSet rs = ps.executeQuery();
-            int i = 0;
-            while(i < 5 && rs.next()){
-                Question question = new Question();
+            while(rs.next()){
+                question = new Question();
                 question.setId(rs.getInt("id"));
                 question.setQuestion(rs.getString("question"));
                 question.setOptionOne(rs.getString("optionOne"));
@@ -152,53 +176,13 @@ public class QuestionService {
                 question.setCategory(rs.getString("category"));
                 question.setAnswer(rs.getInt("answer"));
                 question.setDifficultyLevel(rs.getInt("difficultyLevel"));
-                questions[i] = question;
-                i++;
+                question.setDisplay(rs.getBoolean("display"));
             }
             rs.close();
         }catch (SQLException e){
             e.getMessage();
         }
-        try {
-            return questions[row - 1];
-        }catch (Exception e){
-            return null;
-        }
-    }
-
-    public List<Result> getResults(int id){
-        DatabaseConnection db = new DatabaseConnection();
-        String sql = "SELECT attempts.id, questions.question, " +
-                            " questions.optionOne, questions.optionTwo, " +
-                            " questions.optionThree, questions.optionFour, " +
-                            "questions.answer, attempts.userAnswer " +
-                     "FROM questions " +
-                     "INNER JOIN attempts " +
-                     "ON " +
-                        "attempts.questionId=questions.id " +
-                     "WHERE attempts.userId = ?";
-        List<Result> results= new ArrayList<Result>();
-        try{
-            PreparedStatement ps = db.getPreparedStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                Result result = new Result();
-                result.setId(rs.getInt("id"));
-                result.setUserId(id);
-                result.setQuestion(rs.getString("question"));
-                result.setOptionOne(rs.getString("optionOne"));
-                result.setOptionTwo(rs.getString("optionTwo"));
-                result.setOptionThree(rs.getString("optionThree"));
-                result.setOptionFour(rs.getString("optionFour"));
-                result.setAnswer(rs.getInt("answer"));
-                result.setUserAnswer(rs.getInt("userAnswer"));
-                results.add(result);
-            }
-            rs.close();
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
-        return results;
+        return question;
     }
 }
+

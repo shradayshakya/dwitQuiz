@@ -8,7 +8,7 @@
         <div class="card-header d-flex justify-content-center">
             ${question.question}
         </div>
-        <form action="question" method = "post">
+        <form action="quiz" method = "post">
             <input type = "hidden" name = "userId" value="${user.id}">
             <input type = "hidden" name = "questionId" value="${question.id}">
             <input type="hidden" name="pageRequest" value="nextQuestion">
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="card-footer d-flex justify-content-center">
-            <button class="btn  btn-dark" type="submit">${currentRow < 5 ? 'Next' : 'Finish'}</button>
+            <button class="btn  btn-dark" type="submit">Next</button>
         </div>
         </form>
     </div>

@@ -21,11 +21,11 @@
 
         <c:if test="${sessionScope.user.role== 'user'}">
         <li>
-            <a href="question?pageRequest=play">Play</a>
+            <a href="quiz?pageRequest=play">Play</a>
         </li>
 
         <li>
-            <a href="question?pageRequest=results&userId=${user.id}">Results</a>
+            <a href="quiz?pageRequest=results">Results</a>
         </li>
         </c:if>
 
