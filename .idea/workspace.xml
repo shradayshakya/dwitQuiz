@@ -6,43 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ebbfeef-9b72-401d-b9dd-c527fd53e014" name="Default Changelist" comment="Displayable question">
-      <change afterPath="$PROJECT_DIR$/src/controller/QuizServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domains/Attempt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3d973020-4c93-427b-ab8a-181761a8ddf1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3d973020-4c93-427b-ab8a-181761a8ddf1.xml" afterDir="false" />
+    <list default="true" id="7ebbfeef-9b72-401d-b9dd-c527fd53e014" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/controller/QuestionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/controller/QuestionServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/domains/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/domains/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/services/AttemptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/services/AttemptService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/services/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/services/QuestionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/img/a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/img/a.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/img/q.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/img/q.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/includes/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/includes/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/user/editQuestion.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/user/listQuestions.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/user/play.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/user/postQuestion.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/user/question.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/user/results.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quiz/controller/QuestionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quiz/controller/QuestionServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quiz/domains/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quiz/domains/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quiz/services/AttemptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quiz/services/AttemptService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quiz/services/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quiz/services/QuestionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/QuestionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/QuestionServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AttemptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AttemptService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/QuizServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/QuizServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/q.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/q.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/a.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/includes/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/includes/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/editQuestion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/question/editQuestion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/listQuestions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/question/listQuestions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/play.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/quiz/play.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/postQuestion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/question/postQuestion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/question.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/quiz/question.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/results.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/quiz/results.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,12 +70,12 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/QuizServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="34" column="64" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
+            <state relative-caret-position="248">
+              <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,10 +83,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/includes/nav.jsp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/QuestionService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-545" />
+            <state relative-caret-position="234">
+              <caret line="173" column="57" selection-start-line="173" selection-start-column="57" selection-end-line="173" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -201,9 +173,10 @@
         <option value="$PROJECT_DIR$/src/services/AttemptService.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3d973020-4c93-427b-ab8a-181761a8ddf1/console.sql" />
         <option value="$PROJECT_DIR$/src/domains/Attempt.java" />
-        <option value="$PROJECT_DIR$/src/controller/QuizServlet.java" />
         <option value="$PROJECT_DIR$/src/controller/QuestionServlet.java" />
+        <option value="$PROJECT_DIR$/src/domains/Developer.java" />
         <option value="$PROJECT_DIR$/src/services/QuestionService.java" />
+        <option value="$PROJECT_DIR$/src/controller/QuizServlet.java" />
       </list>
     </option>
   </component>
@@ -234,8 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -299,13 +270,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547118573132" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547124387906" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -455,17 +428,28 @@
       <workItem from="1547028985646" duration="9218000" />
       <workItem from="1547041005712" duration="11723000" />
       <workItem from="1547096115177" duration="444000" />
-      <workItem from="1547114233950" duration="4153000" />
+      <workItem from="1547114233950" duration="4895000" />
+      <workItem from="1547124185082" duration="549000" />
+      <workItem from="1547187971448" duration="204000" />
     </task>
+    <task id="LOCAL-00001" summary="Displayable question">
+      <created>1547118397851</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1547118397851</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85838000" />
+    <option name="totallyTimeSpent" value="87333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1280" height="650" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8" visible="true" weight="0.22285251" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.79718876" visible="true" weight="0.23095624" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -473,7 +457,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Learn" order="7" />
-      <window_info id="Web" order="8" sideWeight="0.2" side_tool="true" visible="true" weight="0.22285251" />
+      <window_info id="Web" order="8" sideWeight="0.20281124" side_tool="true" visible="true" weight="0.23095624" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.864" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.090361446" />
@@ -482,13 +466,13 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.8433735" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.47791165" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.47791165" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.2128514" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.58433735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -900,10 +884,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/includes/nav.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-307" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domains/Developer.java" />
     <entry file="file://$PROJECT_DIR$/src/services/QuestionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="159" column="20" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="20" />
+        <state relative-caret-position="234">
+          <caret line="173" column="57" selection-start-line="173" selection-start-column="57" selection-end-line="173" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -912,17 +902,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/QuizServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="34" column="64" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
+        <state relative-caret-position="248">
+          <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/includes/nav.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-545" />
       </provider>
     </entry>
   </component>

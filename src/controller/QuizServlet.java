@@ -31,14 +31,16 @@ public class QuizServlet extends HttpServlet {
             if(new AttemptService().numberOfAttempts(userId) != 0){
                 new AttemptService().refreshAttempts(userId);
             }
-            int currentRow = 1;
+            int currentRow = 0;
             Question question = new QuestionService().getDisplayableQuestion(currentRow);
+
             System.out.println(question);
             if(question == null){
                 request.setAttribute("message","No questions available");
                 request.getRequestDispatcher("/quiz/play.jsp").forward(request,response);
             }
             else{
+                currentRow = question.getId();
                 redirectToQuestionPage(request, response, currentRow, question);
             }
         }
@@ -60,6 +62,7 @@ public class QuizServlet extends HttpServlet {
                 response.sendRedirect("quiz?pageRequest=results");
             }
             else{
+                currentRow = question.getId();
                 redirectToQuestionPage(request, response, currentRow, question);
             }
         }

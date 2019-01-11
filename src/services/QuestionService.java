@@ -159,7 +159,7 @@ public class QuestionService {
 
     public Question getDisplayableQuestion(int row){
         DatabaseConnection db = new DatabaseConnection();
-        String sql = "SELECT * FROM (SELECT @row := @row + 1 AS rownum, questions.* FROM (SELECT @row:= 0) AS r, questions WHERE display=true) questions WHERE rownum=?";
+        String sql = "SELECT * FROM questions WHERE id > ? AND display=true LIMIT 1";
         Question question = null;
         try{
             PreparedStatement ps = db.getPreparedStatement(sql);
@@ -186,3 +186,5 @@ public class QuestionService {
     }
 }
 
+
+//SELECT * FROM (SELECT @row := @row + 1 AS rownum, questions.* FROM (SELECT @row:= 0) AS r, questions WHERE display=true) questions WHERE rownum=?SELECT * FROM (SELECT @row := @row + 1 AS rownum, questions.* FROM (SELECT @row:= 0) AS r, questions WHERE display=true) questions WHERE rownum=?
