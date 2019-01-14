@@ -7,7 +7,7 @@ public class Question {
     String optionTwo;
     String optionThree;
     String optionFour;
-    String category;
+    int category;
     int answer;
     int difficultyLevel;
     boolean display;
@@ -60,11 +60,11 @@ public class Question {
         this.optionFour = optionFour;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 

@@ -7,26 +7,32 @@
         </li>
 
         <c:if test="${sessionScope.user.role=='admin'}">
-        <li>
-            <a href="user?pageRequest=listUsers">Users</a>
-        </li>
+            <li>
+                <a href="user?pageRequest=listUsers">Users</a>
+            </li>
 
-        <li>
-            <a href="question?pageRequest=postQuestionGet">Post</a>
-        </li>
-        <li>
-            <a href="question?pageRequest=listQuestions">Questions</a>
-        </li>
+            <li>
+                <a href="question?pageRequest=postQuestionGet">Post Question</a>
+            </li>
+            <li>
+                <a href="question?pageRequest=listQuestions">Questions</a>
+            </li>
+            <li>
+                <a href="category?pageRequest=addCategoryGet">Add Category</a>
+            </li>
+            <li>
+                <a href="category?pageRequest=listCategories">Categories</a>
+            </li>
         </c:if>
 
         <c:if test="${sessionScope.user.role== 'user'}">
-        <li>
-            <a href="quiz?pageRequest=play">Play</a>
-        </li>
+            <li>
+                <a href="quiz?pageRequest=play">Play</a>
+            </li>
 
-        <li>
-            <a href="quiz?pageRequest=results">Results</a>
-        </li>
+            <li>
+                <a href="quiz?pageRequest=results">Results</a>
+            </li>
         </c:if>
 
 

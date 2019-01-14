@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionService {
-    public String insertQuestion(String question, String optionOne, String optionTwo, String optionThree, String optionFour, String category, int answer, int difficultyLevel, boolean display){
+    public String insertQuestion(String question, String optionOne, String optionTwo, String optionThree, String optionFour, int category, int answer, int difficultyLevel, boolean display){
         String message = "";
 
         DatabaseConnection db = new DatabaseConnection();
@@ -23,7 +23,7 @@ public class QuestionService {
             ps.setString(3, optionTwo);
             ps.setString(4, optionThree);
             ps.setString(5, optionFour);
-            ps.setString(6, category);
+            ps.setInt(6, category);
             ps.setInt(7, answer);
             ps.setInt(8, difficultyLevel);
             ps.setBoolean(9, display);
@@ -51,7 +51,7 @@ public class QuestionService {
                 question.setOptionTwo(rs.getString("optionTwo"));
                 question.setOptionThree(rs.getString("optionThree"));
                 question.setOptionFour(rs.getString("optionFour"));
-                question.setCategory(rs.getString("category"));
+                question.setCategory(rs.getInt("category"));
                 question.setAnswer(rs.getInt("answer"));
                 question.setDifficultyLevel(rs.getInt("difficultyLevel"));
                 question.setDisplay(rs.getBoolean("display"));
@@ -80,7 +80,7 @@ public class QuestionService {
                 question.setOptionTwo(rs.getString("optionTwo"));
                 question.setOptionThree(rs.getString("optionThree"));
                 question.setOptionFour(rs.getString("optionFour"));
-                question.setCategory(rs.getString("category"));
+                question.setCategory(rs.getInt("category"));
                 question.setAnswer(rs.getInt("answer"));
                 question.setDifficultyLevel(rs.getInt("difficultyLevel"));
                 question.setDisplay(rs.getBoolean("display"));
@@ -92,7 +92,7 @@ public class QuestionService {
         return question;
     }
 
-    public String editQuestion(int id, String question, String optionOne, String optionTwo, String optionThree, String optionFour, String category, int answer, int difficultyLevel, boolean display){
+    public String editQuestion(int id, String question, String optionOne, String optionTwo, String optionThree, String optionFour, int category, int answer, int difficultyLevel, boolean display){
         String message = "";
 
         DatabaseConnection db = new DatabaseConnection();
@@ -104,7 +104,7 @@ public class QuestionService {
             ps.setString(3, optionTwo);
             ps.setString(4, optionThree);
             ps.setString(5, optionFour);
-            ps.setString(6, category);
+            ps.setInt(6, category);
             ps.setInt(7, answer);
             ps.setInt(8, difficultyLevel);
             ps.setBoolean(9, display);
@@ -173,7 +173,7 @@ public class QuestionService {
                 question.setOptionTwo(rs.getString("optionTwo"));
                 question.setOptionThree(rs.getString("optionThree"));
                 question.setOptionFour(rs.getString("optionFour"));
-                question.setCategory(rs.getString("category"));
+                question.setCategory(rs.getInt("category"));
                 question.setAnswer(rs.getInt("answer"));
                 question.setDifficultyLevel(rs.getInt("difficultyLevel"));
                 question.setDisplay(rs.getBoolean("display"));

@@ -1,9 +1,11 @@
 package controller;
 
+import domains.Category;
 import domains.Question;
 import domains.Result;
 import domains.User;
 import services.AttemptService;
+import services.CategoryService;
 import services.QuestionService;
 
 import javax.servlet.ServletException;
@@ -23,6 +25,8 @@ public class QuestionServlet extends HttpServlet {
 
         //Request for registering question page
         if(pageRequest.equals("postQuestionGet")){
+            List<Category> categories = new CategoryService().getAllCategories();
+            request.setAttribute("categories",categories);
             request.getRequestDispatcher("/question/postQuestion.jsp").forward(request,response);
         }
 
@@ -34,7 +38,7 @@ public class QuestionServlet extends HttpServlet {
             String optionthree = request.getParameter("optionthree");
             String optionfour = request.getParameter("optionfour");
             int answer = Integer.parseInt(request.getParameter("answer"));
-            String category = request.getParameter("category");
+            int category = Integer.parseInt(request.getParameter("category"));
             int difficultyLevel = Integer.parseInt(request.getParameter("difficulty"));
             boolean display = Boolean.parseBoolean(request.getParameter("display"));
             String message = new QuestionService().insertQuestion(question,optionone,optiontwo,optionthree,optionfour,category,answer,difficultyLevel, display);
@@ -64,7 +68,7 @@ public class QuestionServlet extends HttpServlet {
             String optionthree = request.getParameter("optionthree");
             String optionfour = request.getParameter("optionfour");
             int answer = Integer.parseInt(request.getParameter("answer"));
-            String category = request.getParameter("category");
+            int category = Integer.parseInt(request.getParameter("category"));
             int difficultyLevel = Integer.parseInt(request.getParameter("difficulty"));
             boolean display = Boolean.parseBoolean(request.getParameter("display"));
             String message = new QuestionService().editQuestion(id,question,optionone,optiontwo,optionthree,optionfour,category,answer,difficultyLevel, display);
@@ -92,6 +96,8 @@ public class QuestionServlet extends HttpServlet {
     }
 
     private void redirectToListQuestions(HttpServletRequest request, HttpServletResponse response, String message) throws ServletException, IOException {
+        List<Category> categories = new CategoryService().getAllCategories();
+        request.setAttribute("categories",categories);
         List<Question> questions = new QuestionService().getAllQuestions();
         request.setAttribute("message", message);
         request.setAttribute("questions", questions);

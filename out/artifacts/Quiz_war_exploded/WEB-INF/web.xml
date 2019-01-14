@@ -30,11 +30,21 @@
         <servlet-name>Quiz</servlet-name>
         <servlet-class>controller.QuizServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>Quiz</servlet-name>
         <url-pattern>/quiz</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Category</servlet-name>
+        <servlet-class>controller.CategoryServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Category</servlet-name>
+        <url-pattern>/category</url-pattern>
+    </servlet-mapping>
 
 
     <filter>

@@ -59,7 +59,12 @@
         <div class="form-group row">
             <label for="category" class="col-sm-2 col-form-label">Category</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="category"  name="category" placeholder="Enter the category">
+                <select name="category" class="form-control" id="category">
+                    <option>Select an option</option>
+                    <c:forEach items="${categories}" var="category">
+                        <option value="${category.id}">${category.name}</option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
 
