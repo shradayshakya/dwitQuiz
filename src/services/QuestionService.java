@@ -157,13 +157,15 @@ public class QuestionService {
     }
 
 
-    public Question getDisplayableQuestion(int row){
+    public Question getDisplayableQuestion(int row, int category, int difficultyLevel){
         DatabaseConnection db = new DatabaseConnection();
-        String sql = "SELECT * FROM (SELECT @row := @row + 1 AS rownum, questions.* FROM (SELECT @row:= 0) AS r, questions WHERE display=true) questions WHERE rownum=?";
+        String sql = "SELECT * FROM (SELECT @row := @row + 1 AS rownum, questions.* FROM (SELECT @row:= 0) AS r, questions WHERE display=true AND category = ? AND difficultyLevel = ?) questions WHERE rownum=?";
         Question question = null;
         try{
             PreparedStatement ps = db.getPreparedStatement(sql);
-            ps.setInt(1, row);
+            ps.setInt(1, category);
+            ps.setInt(2, difficultyLevel);
+            ps.setInt(3, row);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 question = new Question();
