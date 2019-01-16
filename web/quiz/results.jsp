@@ -14,12 +14,13 @@
         </thead>
         <c:forEach items="${categories}" var="category">
         <c:forEach begin="1" end="3" var="difficultyLevel">
-            <c:set var="count" value="0" />
+            <c:set var="score" value="0" />
             <c:set var="total" value="0" />
+
         <c:forEach items="${results}" var="result">
         <c:if test="${(result.category==category.id && result.difficultyLevel== difficultyLevel)}">
             <c:set var="total" value="${total+1}" />
-        <tr>
+        <tr style="background-color: #e0e0e0">
             <td>${result.question}</td>
             <td>
                 <c:choose>
@@ -65,7 +66,7 @@
                                   ${"text-danger"}
                                 </c:otherwise>
                                 </c:choose>
-                                ">${(result.userAnswer==result.answer?"Corret":"Incorrect")}
+                                ">${(result.userAnswer==result.answer?"Correct":"Incorrect")}
             </td>
         </tr>
         </c:if>

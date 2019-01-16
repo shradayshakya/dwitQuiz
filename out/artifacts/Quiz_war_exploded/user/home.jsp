@@ -4,7 +4,7 @@
 
 <div class="hero-image">
     <div class="hero-text">
-        <h2 style="color: #23272b">Welcome ${user.name}</h2>
+        <h2 style="color: white">Online Quiz</h2>
     </div>
 </div>
 

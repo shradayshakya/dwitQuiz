@@ -21,7 +21,13 @@
         <c:forEach items="${questions}" var="question">
             <tr>
                 <td>${question.question}</td>
-                <td>${question.category}</td>
+                <td>
+                    <c:forEach items="${categories}" var="category">
+                        <c:if test="${question.category==category.id}">
+                            ${category.name}
+                        </c:if>
+                    </c:forEach>
+                </td>
                 <td>${question.difficultyLevel}</td>
                 <td>
                     <form action="question" name="form${question.id}" method="post">

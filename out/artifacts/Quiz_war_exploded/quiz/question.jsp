@@ -11,6 +11,8 @@
         <form action="quiz" method = "post">
             <input type = "hidden" name = "userId" value="${user.id}">
             <input type = "hidden" name = "questionId" value="${question.id}">
+            <input type = "hidden" name = "categoryId" value="${categoryId}">
+            <input type = "hidden" name = "difficultyLevel" value="${difficultyLevel}">
             <input type="hidden" name="pageRequest" value="nextQuestion">
             <input type="hidden" name="currentRow" value="${currentRow}">
         <div class="card-body">
