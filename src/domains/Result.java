@@ -10,6 +10,8 @@ public class Result {
     String optionFour;
     int answer;
     int userAnswer;
+    int category;
+    int difficultyLevel;
 
     public int getId() {
         return id;
@@ -81,5 +83,21 @@ public class Result {
 
     public void setUserAnswer(int userAnswer) {
         this.userAnswer = userAnswer;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public int getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public void setDifficultyLevel(int difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
     }
 }

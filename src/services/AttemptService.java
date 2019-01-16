@@ -27,6 +27,7 @@ public class AttemptService {
         }
         return  message;
     }
+
     public int numberOfAttempts(int userId){
         DatabaseConnection db = new DatabaseConnection();
         String sql = "SELECT count(*) AS total from attempts where userId = ?;";
@@ -45,14 +46,36 @@ public class AttemptService {
         return attempts;
     }
 
-    public String refreshAttempts(int userId){
-        String message = "";
-
+    public int numberOfAttempts(int userId, int categoryId, int difficultyLevel){
         DatabaseConnection db = new DatabaseConnection();
-        String sql = "DELETE FROM attempts where userId = ?";
+        String sql = "SELECT count(attempts.id) as total FROM attempts INNER join questions q on attempts.questionId = q.id where userId = ? AND category = ? AND difficultyLevel = ?;";
+        int attempts =0;
         try{
             PreparedStatement ps = db.getPreparedStatement(sql);
             ps.setInt(1, userId);
+            ps.setInt(2, categoryId);
+            ps.setInt(3, difficultyLevel);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                attempts = rs.getInt("total");
+            }
+            rs.close();
+        }catch (SQLException e){
+            e.getMessage();
+        }
+        return attempts;
+    }
+
+    public String refreshAttempts(int userId , int categoryId, int difficultyLevel){
+        String message = "";
+
+        DatabaseConnection db = new DatabaseConnection();
+        String sql = "DELETE FROM attempts where id IN (select id FROM(select attempts.id from attempts inner join questions q on attempts.questionId = q.id where userId =? AND category=? and difficultyLevel=?) AS atmp);;";
+        try{
+            PreparedStatement ps = db.getPreparedStatement(sql);
+            ps.setInt(1, userId);
+            ps.setInt(2, categoryId);
+            ps.setInt(3, difficultyLevel);
             ps.execute();
             message = "Attempts deleted";
         }catch (SQLException e){
@@ -67,7 +90,8 @@ public class AttemptService {
         String sql = "SELECT attempts.id, questions.question, " +
                 " questions.optionOne, questions.optionTwo, " +
                 " questions.optionThree, questions.optionFour, " +
-                "questions.answer, attempts.userAnswer " +
+                "questions.answer, questions.category," +
+                "questions.difficultyLevel, attempts.userAnswer " +
                 "FROM questions " +
                 "INNER JOIN attempts " +
                 "ON " +
@@ -89,6 +113,8 @@ public class AttemptService {
                 result.setOptionFour(rs.getString("optionFour"));
                 result.setAnswer(rs.getInt("answer"));
                 result.setUserAnswer(rs.getInt("userAnswer"));
+                result.setCategory(rs.getInt("category"));
+                result.setDifficultyLevel(rs.getInt("difficultyLevel"));
                 results.add(result);
             }
             rs.close();

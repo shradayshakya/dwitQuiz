@@ -7,6 +7,7 @@ import domains.User;
 import services.AttemptService;
 import services.CategoryService;
 import services.QuestionService;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,8 +35,9 @@ public class QuizServlet extends HttpServlet {
             int categoryId = Integer.parseInt(request.getParameter("categoryId"));
             int difficultyLevel = Integer.parseInt(request.getParameter(request.getParameter("categoryName")));
             int userId = getUserId(request);
-            if(new AttemptService().numberOfAttempts(userId) != 0){
-                new AttemptService().refreshAttempts(userId);
+            int attempts;
+            if( (new AttemptService().numberOfAttempts(userId,categoryId,difficultyLevel)) != 0){
+                new AttemptService().refreshAttempts(userId,categoryId,difficultyLevel);
             }
             int currentRow = 1;
             Question question = new QuestionService().getDisplayableQuestion(currentRow, categoryId,difficultyLevel);
@@ -74,20 +76,13 @@ public class QuizServlet extends HttpServlet {
         if(pageRequest.equals("results")){
             int userId = getUserId(request);
             if(new AttemptService().numberOfAttempts(userId) == 0){
-                request.getRequestDispatcher("/quiz/play.jsp").forward(request,response);
+                request.setAttribute("message","Play a quiz first to view results");
+                request.getRequestDispatcher("/quiz?pageRequest=play").forward(request,response);
             }
 
             List<Result> results = new AttemptService().getResults(userId);
-            int score =0;
-            int total =0;
-            for (Result result: results){
-                total++;
-                if(result.getAnswer()==result.getUserAnswer()){
-                    score++;
-                }
-            }
-            request.setAttribute("score",score);
-            request.setAttribute("total",total);
+            List<Category> categories = new CategoryService().getAllCategories();
+            request.setAttribute("categories",categories);
             request.setAttribute("results",results);
             request.getRequestDispatcher("/quiz/results.jsp").forward(request,response);
         }

@@ -3,7 +3,7 @@
     <link rel ="stylesheet" href="css/play.css">
 
 <%@include file="../includes/nav.jsp"%>
-${message}
+<h5 class="text-danger text-center mt-3">${message}</h5>
 <div class="container-fluid mt-3 d-flex flex-wrap justify-content-center">
     <c:forEach items="${categories}" var="category">
         <form action="quiz" method="post">
